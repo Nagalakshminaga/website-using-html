@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+
+<span id="heading">Simple automatic slider</span>
+<div id="slider">  
+<div class="slides">  
+  <img src="img/phone.jpg" />
+ </div>
+  
+  <div class="slides">  
+  <img src="img/webservice.jpg"  />
+</div>
+  
+  <div class="slides">  
+  <img src="img/Environment.jpg"  />
+</div> 
+  
+   <div class="slides">  
+  <img src="img/courses.jpg"  />
+</div> 
+  
+<div class="slides">  
+  <img src="img/job offer.jpg"/>
+</div>  
+  
+  <div id="dot">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+ </div>
+
+<script>
+    var index = 0;
+var slides = document.querySelectorAll(".slides");
+var dot = document.querySelectorAll(".dot");
+
+function changeSlide(){
+
+  if(index<0){
+    index = slides.length-1;
+  }
+  
+  if(index>slides.length-1){
+    index = 0;
+  }
+  
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+    dot[i].classList.remove("active");
+  }
+  
+  slides[index].style.display= "block";
+  dot[index].classList.add("active");
+  
+  index++;
+  
+  setTimeout(changeSlide,2000);
+  
+}
+
+changeSlide();
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+//slider css code
+
+/* sliders */
+
+@keyframes fade{
+    from{
+      opacity:0.4;
+    }
+    to{
+      opacity:1;
+    }
+  }
+  
+  body{
+    background:#eeee;
+  }
+  
+  #slider{
+    margin:0 auto;
+    width:80%;
+    overflow:hidden;
+  }
+  
+  .slides{
+    overflow:hidden;
+    animation-name:fade;
+    animation-duration:1s;
+    display:none;
+  }
+  
+  img{
+    width:100%;
+  }
+  
+  #dot{
+    margin:0 auto;
+    text-align:center;
+  }
+  .dot{
+    display:inline-block;
+    border-radius:50%;
+    background:#d3d3d3;
+    padding:8px;
+    margin:10px 5px;
+  }
+  
+  .active{
+    background:black;
+  }
+  
+  @media (max-width:780spx){
+    #slider{
+      width:100pX;
+  
+    }
+  }
+  
+  #heading{
+    display:block;
+    text-align:center;
+    font-size:2em;
+    margin:10px 0px;
+  
+  }
+
+  \*navbar html */
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Detail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" text="text/css"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+ 
+</head>
+<body>
+ <div class="back">
+    <div class="nav-bar">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+        <ul>
+            <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-user-circle"></i> About </a></li>
+            <li><a href="client.html"><i class="fa fa-users"></i> Client</a></li>
+            <li><a href="#"><i class="fa fa-file-text"></i> Project</a></li>
+            <li><a href="services.html"><i class="fa fa-briefcase"></i> Services</a></li>
+            <li><a href="contact.html"><i class="fa fa-phone-square"></i> Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+css
+
+
+/* Google font- poppins*/
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.back{
+    background-image: url(img/img.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    min-height: 100px;
+   
+}
+.checkbtn{
+    color:#fff;
+    font-size: 25px;
+    cursor: pointer;
+    float: right;
+}
+#check{
+    display:none;
+}
+.nav-bar{
+    background:rgb(12, 0, 5);
+    text-align: center;
+}
+
+ul{
+    display: inline-flex;
+    list-style: none;
+    color: #000;
+}
+
+ul li{
+    width: 120px;
+    margin: 7px;
+    padding: 17px;
+}
+
+ul li a{
+    text-decoration:none;
+    font-size:16px;
+    color:#fff;
+    padding: 11px 13px;
+    transition: 0.4s ease;
+}
+
+ul li a:hover{
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px;
+
+}
+ul li.active a{
+    background-color: #fff;
+    color: #000;
+}
+.body{
+    min-height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFEFEF;
+}
+

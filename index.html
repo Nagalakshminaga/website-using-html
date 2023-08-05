@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Detail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" text="text/css"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+ 
+</head>
+<body>
+ <div class="back">
+    <div class="nav-bar">
+     
+        <ul>
+            <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-user-circle"></i> About </a></li>
+            <li><a href="client.html"><i class="fa fa-users"></i> Client</a></li>
+            <li><a href="#"><i class="fa fa-file-text"></i> Project</a></li>
+            <li><a href="services.html"><i class="fa fa-briefcase"></i> Services</a></li>
+            <li><a href="contact.html"><i class="fa fa-phone-square"></i> Contact</a></li>
+        </ul>
+    </div>
+</div>
+ <div class="body">
+  
+    <div class="row">
+      
+            <div class="column">
+        
+              <div class="card">
+                  <div class="image-content">
+                      
+                       <div class="card-image">
+                         <img src="img/profile1.jpg" alt=""  class="card-img">                     
+                       </div>
+                   </div>
+                   <div class="card-content">
+                   <h2 class="name">David Dell</h2>
+                   <p class="description">The lorem text the section that contains header
+                     with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                   <button class="button">View More</button>
+                </div>
+                </div>
+              </div>
+              
+        
+
+              
+              <div class="column">
+                <div class="card">
+                    <div class="image-content">
+                        
+                         <div class="card-image">
+                           <img src="img/profile2.jpg" alt=""  class="card-img">                     
+                         </div>
+                     </div>
+                     <div class="card-content">
+                     <h2 class="name">Kavin</h2>
+                     <p class="description">The lorem text the section that contains header
+                       with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+  
+                     <button class="button">View More</button>
+                    </div>
+                  </div>
+                  </div>
+                
+              
+             
+                  <div class="column">
+                
+                      <div class="card">
+                          <div class="image-content">
+                              
+                               <div class="card-image">
+                                 <img src="img/profile3.jpg" alt=""  class="card-img">                     
+                               </div>
+                           </div>
+                           <div class="card-content">
+                           <h2 class="name">Rock Williom</h2>
+                           <p class="description">The lorem text the section that contains header
+                             with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                           <button class="button">View More</button>
+                        
+                    </div>
+                    </div>
+                    </div>
+           
+
+                    <div class="column">
+                            <div class="card">
+                                <div class="image-content">
+                                    
+                                     <div class="card-image">
+                                       <img src="img/profile4.jpg" alt=""  class="card-img">                     
+                                     </div>
+                                 </div>
+                                 <div class="card-content">
+                                 <h2 class="name">Ranjitha Sing</h2>
+                                 <p class="description">The lorem text the section that contains header
+                                   with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+              
+                                 <button class="button">View More</button>
+                              </div>
+                              </div>
+                        
+                </div>
+          </div>
+        </div>
+        <div class="about">
+          <div class="about-body">
+
+        <div class="image-left">
+          <img src="img/welcome.jpg" alt="Human Rights Logo"/>
+          <div class="a-condent">
+            <p><h1>Welcome Guys</h1>The Human Rights Logo has its origin in the international “Logo
+               for Human Rights” initiative, which was started in 2010.
+                Its goal was to create an internationally recognized logo to support the global human rights movement. 
+                The winning logo was created by Predrag Stakić from Serbia.</p>
+            <footer>(from Wikipedia)</footer>
+          </div>
+        </div>
+        
+        <div class="image-right">
+          <img src="img/environment.jpg" alt="Human Rights Logo"/>
+          <div class="a.condent">
+            <p><h1>Working Environment</h1>The Human Rights Logo has its origin in the international 
+              “Logo for Human Rights” initiative, which was started in 2010. 
+              Its goal was to create an internationally recognized logo to support 
+              the global human rights movement. The winning logo was created by Predrag Stakić from Serbia.</p>
+            <footer>(from Wikipedia)</footer>
+          </div>
+        </div>
+       
+        <div id="map" style="width:50%;height:300px;"></div>
+    <div>
+   
+      <p>Latitude:
+          <input type="text" id="latitude" readonly />
+      </p>
+      <p>Longitude
+          <input type="text" id="longitude" readonly />
+      </p>
+  </div>
+  <input
+      id="pac-input"
+      class="controls"
+      type="text"
+      placeholder="Search Box"
+    />
+    
+    <script>
+       
+      function initAutocomplete() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -33.8688, lng: 151.2195 },
+      zoom: 13,
+      mapTypeId: "roadmap",
+    });
+    // Create the search box and link it to the UI element.
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
+         
+  
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener("bounds_changed", () => {
+      searchBox.setBounds(map.getBounds());
+      
+    });
+  
+    let markers = [];
+  
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener("places_changed", () => {
+      const places = searchBox.getPlaces();
+      if (places.length == 0) {
+      return;
+      }
+  
+      // Clear out the old markers.
+      markers.forEach((marker) => {
+        marker.setMap(null);
+        });
+      markers = [];
+      
+  
+      // For each place, get the icon, name and location.
+      const bounds = new google.maps.LatLngBounds();
+  
+      places.forEach((place) => {
+        if (!place.geometry || !place.geometry.location) {
+          
+          console.log("Returned place contains no geometry");
+          return;
+        }
+  
+        //const icon = {
+         // url: place.icon,
+         // size: new google.maps.Size(71, 71),
+         // origin: new google.maps.Point(0, 0),
+          //anchor: new google.maps.Point(17, 34),
+          //scaledSize: new google.maps.Size(25, 25),
+       // };
+  
+        // Create a marker for each place.
+        markers.push(
+          new google.maps.Marker({
+            map,
+            animation: google.maps.Animation.BOUNCE,
+            title: place.name,
+            position: place.geometry.location,
+          })
+        );
+        if (place.geometry.viewport) {
+          // Only geocodes have viewport.
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
+      });
+      map.fitBounds(bounds);
+    });
+       //const idle= document.getElementById('pac-input');
+       const autocomplete = new google.maps.places.Autocomplete(input);
+       autocomplete.addListener('place_changed', function () {
+       const place = autocomplete.getPlace();
+       document.getElementById("latitude").value = place.geometry['location'].lat();
+       document.getElementById("longitude").value = place.geometry['location'].lng();
+       
+    
+
+       });
+   
+  }
+   
+  window.initAutocomplete = initAutocomplete;
+ 
+
+  
+
+    </script>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises
+      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyAzHJUEksxZQ0UI_ikmS3rMH1vmfT1xa9I&callback=initAutocomplete&libraries=places&v=weekly"></script>
+  
+
+      </div>
+    </div>
+      
+ 
+        <div class="services">
+  
+          <div class="row">
+            
+                  <div class="column">
+              
+                    <div class="card">
+                        <div class="image-content">
+                            
+                             <div class="card-image">
+                               <img src="img/phone1.jpg" alt=""  class="card-img">                     
+                             </div>
+                         </div>
+                         <div class="card-content">
+                         <h2 class="name">App Development</h2>
+                         <p class="description">The lorem text the section that contains header
+                           with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+      
+                         <button class="button">View More</button>
+                      </div>
+                      </div>
+                    </div>
+                    
+              
+      
+                    
+                    <div class="column">
+                      <div class="card">
+                          <div class="image-content">
+                              
+                               <div class="card-image">
+                                 <img src="img/webservice.jpg" alt=""  class="card-img">                     
+                               </div>
+                           </div>
+                           <div class="card-content">
+                           <h2 class="name">Web Development</h2>
+                           <p class="description">The lorem text the section that contains header
+                             with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                           <button class="button">View More</button>
+                          </div>
+                        </div>
+                        </div>
+                      
+                    
+                   
+                        <div class="column">
+                      
+                            <div class="card">
+                                <div class="image-content">
+                                    
+                                     <div class="card-image">
+                                       <img src="img/courses.jpg" alt=""  class="card-img">                     
+                                     </div>
+                                 </div>
+                                 <div class="card-content">
+                                 <h2 class="name">Available Courses</h2>
+                                 <p class="description">The lorem text the section that contains header
+                                   with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+              
+                                 <button class="button">View More</button>
+                              
+                          </div>
+                          </div>
+                          </div>
+                 
+      
+                          <div class="column">
+                                  <div class="card">
+                                      <div class="image-content">
+                                          
+                                           <div class="card-image">
+                                             <img src="img/job offer.jpg" alt=""  class="card-img">                     
+                                           </div>
+                                       </div>
+                                       <div class="card-content">
+                                       <h2 class="name">Job Offer</h2>
+                                       <p class="description">The lorem text the section that contains header
+                                         with having open functionality.Lorem dolor sit amet consectetur adipisicing elit.</p>
+                    
+                                       <button class="button">View More</button>
+                                    </div>
+                                    </div>
+                              
+                      </div>
+                </div>
+              </div>
+        <section class ="footer">
+          <h4>About Us</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. pellentesque alliquet turpis nulla,
+             eleifend  faucibus est <br>sollicitudin 
+            ut. Maecenas ut venenatis ex, et dapibus purus.</p>
+            <div class="icons">
+              <i class="fa fa-facebook"></i>
+              <i class="fa fa-twitter"></i>
+              <i class="fa fa-instagram"></i>
+              <i class="fa fa-linkedin"></i>
+            </div>
+
+        </section> 
+       
+        </body>
+      </html>
+      
+      
+                 
+
+
+           

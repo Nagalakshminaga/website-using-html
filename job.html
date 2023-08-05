@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+
+<span id="heading">Simple automatic slider</span>
+<div id="slider">  
+<div class="slides">  
+  <img src="img/phone.jpg" />
+ </div>
+  
+  <div class="slides">  
+  <img src="img/webservice.jpg"  />
+</div>
+  
+  <div class="slides">  
+  <img src="img/Environment.jpg"  />
+</div> 
+  
+   <div class="slides">  
+  <img src="img/courses.jpg"  />
+</div> 
+  
+<div class="slides">  
+  <img src="img/job offer.jpg"/>
+</div>  
+  
+  <div id="dot">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+ </div>
+
+<script>
+    var index = 0;
+var slides = document.querySelectorAll(".slides");
+var dot = document.querySelectorAll(".dot");
+
+function changeSlide(){
+
+  if(index<0){
+    index = slides.length-1;
+  }
+  
+  if(index>slides.length-1){
+    index = 0;
+  }
+  
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+    dot[i].classList.remove("active");
+  }
+  
+  slides[index].style.display= "block";
+  dot[index].classList.add("active");
+  
+  index++;
+  
+  setTimeout(changeSlide,2000);
+  
+}
+
+changeSlide();
+</script>
+
+
+
+
+</body>
+</html>
